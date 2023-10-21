@@ -1,25 +1,52 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import './SlideIn.css';
 
-function App() {
+const SlideInElements = () =>
+{
+  const [isVisible, setIsVisible] = useState([false, false, false]);
+
+  useEffect(() =>
+  {
+    const delay = 1250; // Adjust the delay between each element
+
+    const showElement = (index) =>
+    {
+      setTimeout(() =>
+      {
+        setIsVisible((prev) =>
+        {
+          const newState  = [...prev];
+          newState[index] = true;
+          return newState;
+        });
+      }, index * delay);
+    };
+
+    // Trigger animations for each element
+    for (let i = 0; i < 3; i++)
+    {
+      showElement(i);
+    }
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div className="top">
+      <div className={`element ${isVisible[0] ? 'visible' : ''}`}>
+        <h1>Apid.ai</h1>
+      </div>
+      <div className={`element ${isVisible[1] ? 'visible' : ''}`}>
         <p>
-          Edit <code>src/App.js</code> and save to reload.
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos
+          culpa beatae eaque laborum. Accusantium esse vitae quos exercitationem
+          suscipit, sequi harum quo sit numquam, eos ipsum sint, molestiae
+          facere totam?
         </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      </div>
+      <div className={`element ${isVisible[2] ? 'visible' : ''}`}>
+        <button>Get Started</button>
+      </div>
     </div>
   );
-}
+};
 
-export default App;
+export default SlideInElements;
