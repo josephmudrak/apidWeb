@@ -5,6 +5,7 @@
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.5s ease, transform 0.5s ease;
+    background-color: #fb0092;
 }
   
 .element.visible
@@ -23,6 +24,7 @@
 {
   font-family: 'Inter', sans-serif;
   font-weight: 500;
+  color: #fff;
 }
 
 .element h1
@@ -38,8 +40,8 @@
 
 .element button
 {
-  background-color: #000;
-  color: #fff;
+  background-color: #fff;
+  color: #000;
   border: 2.5px rgba(255, 255, 255, .04);
   text-align: center;
   border-radius: 40px;
